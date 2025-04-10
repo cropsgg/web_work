@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1231</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .chart-container {
+            width: 45%;
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Bar Chart</h2>
+    <div id="barChart" class="chart-container"></div>
+
+    <h2>Line Chart</h2>
+    <div id="lineChart" class="chart-container"></div>
+
+    <h2>Pie Chart</h2>
+    <div id="pieChart" class="chart-container"></div>
+
+    <h2>Donut Chart</h2>
+    <div id="donutChart" class="chart-container"></div>
+
+    <script>
+        function drawCharts() {
+            // Bar Chart
+            let barData = [{
+                x: ['A', 'B', 'C', 'D', 'E'],
+                y: [10, 15, 7, 20, 13],
+                type: 'bar',
+                marker: { color: ['red', 'blue', 'green', 'orange', 'purple'] }
+            }];
+            let barLayout = { title: 'Bar Chart Example', xaxis: { title: 'Categories' }, yaxis: { title: 'Values' } };
+            Plotly.newPlot('barChart', barData, barLayout);
+
+            // Line Chart
+            let lineData = [{
+                x: [1, 2, 3, 4, 5],
+                y: [2, 8, 4, 10, 6],
+                type: 'scatter',
+                mode: 'lines+markers',
+                marker: { color: 'blue' }
+            }];
+            let lineLayout = { title: 'Line Chart Example', xaxis: { title: 'X Values' }, yaxis: { title: 'Y Values' } };
+            Plotly.newPlot('lineChart', lineData, lineLayout);
+
+            // Pie Chart
+            let pieData = [{
+                labels: ['Apples', 'Bananas', 'Cherries', 'Dates'],
+                values: [20, 35, 25, 20],
+                type: 'pie'
+            }];
+            let pieLayout = { title: 'Pie Chart Example' };
+            Plotly.newPlot('pieChart', pieData, pieLayout);
+
+            // Donut Chart
+            let donutData = [{
+                labels: ['Red', 'Blue', 'Green', 'Yellow'],
+                values: [30, 25, 20, 25],
+                type: 'pie',
+                hole: 0.4
+            }];
+            let donutLayout = { title: 'Donut Chart Example' };
+            Plotly.newPlot('donutChart', donutData, donutLayout);
+        }
+
+        drawCharts();
+    </script>
+</body>
+</html>

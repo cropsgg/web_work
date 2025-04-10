@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Experiment 5</title>
+</head>
+<body>
+	<div style="display: flex;">
+		<div style="border-right: 1px solid lightgrey; padding-right: 30px;">
+			<h2>Audio</h2>
+			<audio controls>
+				<source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+					Audio not supported.
+			</audio>
+			<h2>Video</h2>
+			<video width="300" controls>
+				<source src="https://tekeye.uk/html/images/Joren_Falls_Izu_Jap.mp4" type="video/mp4" />
+				Video not supported.
+			</video>
+			<h2>Canvas</h2>
+			<canvas width="300" height="150">Canvas not supported.</canvas>
+			<script>
+				let ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
+				let img = new Image();
+				img.width = 300;
+				img.height = 150;
+				img.src = "canvas.png";
+				console.log(ctx);
+			 	window.onload = function() {
+					ctx.drawImage(img, 0, 0, 300, 150);
+				}
+			</script>
+		</div>
+		<div style="margin-left: 30px;">
+			<h1>House using SVG</h1>
+			<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 200 200">
+				<rect x="50" y="80" width="100" height="80" fill="brown" stroke="black" stroke-width="2"/>
+
+				<polygon points="50,80 100,30 150,80" fill="brown" stroke="black" stroke-width="2"/>
+
+				<rect x="90" y="120" width="20" height="40" fill="saddlebrown" stroke="black" stroke-width="2"/>
+
+				<rect x="60" y="100" width="20" height="20" fill="lightblue" stroke="black" stroke-width="2"/>
+				<rect x="120" y="100" width="20" height="20" fill="lightblue" stroke="black" stroke-width="2"/>
+
+				<rect x="80" y="150" width="40" height="15" fill="grey" stroke="black" stroke-width="2"/>
+				<rect x="85" y="165" width="30" height="10" fill="grey" stroke="black" stroke-width="2"/>
+
+				<circle cx="100" cy="60" r="10" fill="yellow" stroke="black" />
+
+				<circle cx="150" cy="20" r="15" fill="yellow" stroke="black"/>
+				<circle cx="160" cy="20" r="10" fill="white" />
+
+				<polygon points="150,50 160,80 190,80 165,100 175,130 150,110 125,130 135,100 110,80 140,80" fill="gold" stroke="black" stroke-width="2" transform="scale(0.3, 0.3) translate(250, -30)"/>
+
+			</svg>
+
+		</div>
+	</div>
+</body>
+</html>

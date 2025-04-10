@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1231</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            flex-direction: column;
+            text-align: center;
+            background-color: #f8f8f8; 
+        }
+        .reg-box {
+            border: 2px solid red;
+            padding: 10px;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+        .name-box {
+            border: 1px solid black;
+            padding: 10px;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let regNo = prompt("Enter your registration number:");
+        let name = prompt("Enter your name:");
+        document.body.innerHTML += `
+            <div class="reg-box">${regNo}</div>
+            <div class="name-box">*${name}*</div>
+        `;
+    </script>
+</body>
+</html>

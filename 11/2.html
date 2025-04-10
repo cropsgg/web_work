@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1231</title>
+</head>
+<body>
+
+    <!-- (i) Stopwatch -->
+    <h2>Stopwatch</h2>
+    <p id="display">00:00:00</p>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+
+    <!-- (ii) Age Calculator -->
+    <h2>Age Calculator</h2>
+    <label for="dob">Enter Date of Birth:</label>
+    <input type="date" id="dob">
+    <p id="age"></p>
+
+    <!-- (iii) Character Counter -->
+    <h2>Character Counter</h2>
+    <textarea id="textarea" rows="4" cols="50"></textarea>
+    <p>Characters: <span id="charCount">0</span></p>
+
+    <script>
+        // (i) Stopwatch
+        let startTime, updatedTime, difference, timerInterval;
+        let running = false;
+
+        function startStopwatch() {
+            if (!running) {
+                startTime = new Date().getTime() - (difference || 0);
+                timerInterval = setInterval(updateDisplay, 1000);
+                running = true;
+            }
+        }
+
+        function stopStopwatch() {
+            if (running) {
+                clearInterval(timerInterval);
+                difference = new Date().getTime() - startTime;
+                running = false;
+            }
+        }
+
+        function resetStopwatch() {
+            clearInterval(timerInterval);
+            document.getElementById("display").innerText = "00:00:00";
+            startTime = 0;
+            difference = 0;
+            running = false;
+        }
+
+        function updateDisplay() {
+            updatedTime = new Date().getTime();
+            difference = updatedTime - startTime;
+            let seconds = Math.floor((difference / 1000) % 60);
+            let minutes = Math.floor((difference / (1000 * 60)) % 60);
+            let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            document.getElementById("display").innerText =
+                (hours < 10 ? "0" : "") + hours + ":" +
+                (minutes < 10 ? "0" : "") + minutes + ":" +
+                (seconds < 10 ? "0" : "") + seconds;
+        }
+
+        document.getElementById("start").addEventListener("click", startStopwatch);
+        document.getElementById("stop").addEventListener("click", stopStopwatch);
+        document.getElementById("reset").addEventListener("click", resetStopwatch);
+
+        // (ii) Age Calculator
+        document.getElementById("dob").addEventListener("mouseover", function () {
+            let dob = new Date(this.value);
+            if (!isNaN(dob)) {
+                let diff = new Date() - dob;
+                let age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+                document.getElementById("age").innerText = "Your age: " + age;
+            } else {
+                document.getElementById("age").innerText = "Enter a valid date.";
+            }
+        });
+
+        // (iii) Character Counter
+        document.getElementById("textarea").addEventListener("input", function () {
+            document.getElementById("charCount").innerText = this.value.length;
+        });
+
+    </script>
+
+</body>
+</html>

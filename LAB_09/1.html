@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1231</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        table {
+            width: 50%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: lightgray;
+        }
+        .hot { background-color: lightcoral; }
+        .pleasant { background-color: lightgreen; }
+        .cold { background-color: lightblue; }
+    </style>
+</head>
+<body>
+    <h2>New York Temperature Analysis</h2>
+    <div id="temperatureTable"></div>
+    <h3>Summary</h3>
+    <p id="hotDays"></p>
+    <p id="pleasantDays"></p>
+    <p id="coldDays"></p>
+    <script>
+        const temperatures = [55,62,68,74,59,45,41,58,60,67,65,78,82,88,91,92,90,93,87,80,78,79,72,68,61,59,55,65];
+        let hotDays = 0, pleasantDays = 0, coldDays = 0;
+        let tableHTML = `<table>
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Temperature (°F)</th>
+                                    <th>Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>`;
+        temperatures.forEach((temp, index) => {
+            let category = "";
+            let cssClass = "";
+
+            if (temp >= 85) {
+                category = "HOT";
+                cssClass = "hot";
+                hotDays++;
+            } else if (temp >= 60) {
+                category = "PLEASANT";
+                cssClass = "pleasant";
+                pleasantDays++;
+            } else {
+                category = "COLD";
+                cssClass = "cold";
+                coldDays++;
+            }
+            tableHTML += `<tr class="${cssClass}">
+                            <td>${index + 1}</td>
+                            <td>${temp}°F</td>
+                            <td>${category}</td>
+                          </tr>`;
+        });
+        tableHTML += `</tbody></table>`;
+        document.getElementById("temperatureTable").innerHTML = tableHTML;
+        document.getElementById("hotDays").innerText = `Number of HOT days: ${hotDays}`;
+        document.getElementById("pleasantDays").innerText = `Number of PLEASANT days: ${pleasantDays}`;
+        document.getElementById("coldDays").innerText = `Number of COLD days: ${coldDays}`;
+    </script>
+</body>
+</html>

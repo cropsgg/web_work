@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1231</title>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // (i) Create a dynamic table with three rows and three columns
+            let table = document.createElement("table");
+            table.border = "1";
+            for (let i = 0; i < 3; i++) {
+                let row = document.createElement("tr");
+                for (let j = 0; j < 3; j++) {
+                    let cell = document.createElement("td");
+                    cell.innerText = `Row ${i + 1}, Col ${j + 1}`;
+                    row.appendChild(cell);
+                }
+                table.appendChild(row);
+            }
+            document.body.appendChild(table);
+            
+            // (ii) Change the color of the button on Mouse Over
+            let button = document.createElement("button");
+            button.innerText = "Hover Me";
+            button.style.backgroundColor = "red";
+            button.onmouseover = function () {
+                button.style.backgroundColor = "green";
+            };
+            document.body.appendChild(button);
+
+            // (iii) Change textbox color and display greeting on Change
+            let textbox = document.createElement("input");
+            textbox.type = "text";
+            textbox.style.backgroundColor = "green";
+            textbox.onfocus = function () {
+                textbox.style.backgroundColor = "yellow";
+            };
+            textbox.onchange = function () {
+                alert("Hello! You changed the text.");
+            };
+            document.body.appendChild(textbox);
+
+            // (iv) Add input text as <li> on button double-click
+            let inputField = document.createElement("input");
+            let addButton = document.createElement("button");
+            addButton.innerText = "Add Item";
+            let ul = document.createElement("ul");
+
+            addButton.ondblclick = function () {
+                let li = document.createElement("li");
+                li.innerText = inputField.value;
+                ul.appendChild(li);
+                inputField.value = "";
+            };
+            document.body.appendChild(inputField);
+            document.body.appendChild(addButton);
+            document.body.appendChild(ul);
+
+            // (v) Input field with key press counter
+            let keyInput = document.createElement("input");
+            let keyCounter = document.createElement("input");
+            keyCounter.readOnly = true;
+            let count = 0;
+
+            keyInput.onkeypress = function () {
+                count++;
+                keyCounter.value = count;
+            };
+
+            document.body.appendChild(keyInput);
+            document.body.appendChild(keyCounter);
+        });
+    </script>
+</body>
+</html>

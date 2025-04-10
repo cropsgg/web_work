@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1231</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        input, select, textarea {
+            margin-bottom: 10px;
+        }
+        #timer {
+            float: right;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Test JavaScript Form Validation</h2>
+    <div id="timer"></div>
+
+    <form id="myForm">
+        <label>Name*:</label>
+        <input type="text" name="name" id="name">
+        <span class="error" id="nameError"></span>
+        <br>
+
+        <label>Address*:</label>
+        <textarea name="address" id="address"></textarea>
+        <span class="error" id="addressError"></span>
+        <br>
+
+        <label>Zip Code*:</label>
+        <input type="text" name="zipcode" id="zipcode">
+        <span class="error" id="zipError"></span>
+        <br>
+
+        <label>Country*:</label>
+        <select name="country" id="country">
+            <option value="">Please select...</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+        </select>
+        <span class="error" id="countryError"></span>
+        <br>
+
+        <label>Gender*:</label>
+        <input type="radio" name="gender" value="Male">Male
+        <input type="radio" name="gender" value="Female">Female
+        <span class="error" id="genderError"></span>
+        <br>
+
+        <label>Preferences*:</label>
+        <input type="checkbox" name="preferences" value="Red">Red
+        <input type="checkbox" name="preferences" value="Green">Green
+        <input type="checkbox" name="preferences" value="Blue">Blue
+        <span class="error" id="preferencesError"></span>
+        <br>
+
+        <label>Phone*:</label>
+        <input type="text" name="phone" id="phone">
+        <span class="error" id="phoneError"></span>
+        <br>
+
+        <label>Email*:</label>
+        <input type="text" name="email" id="email">
+        <span class="error" id="emailError"></span>
+        <br>
+
+        <label>Password (8-15 characters)*:</label>
+        <input type="password" name="password" id="password">
+        <span class="error" id="passwordError"></span>
+        <br>
+
+        <label>Verify Password*:</label>
+        <input type="password" name="verifyPassword" id="verifyPassword">
+        <span class="error" id="verifyPasswordError"></span>
+        <br>
+
+        <label>PAN No:</label>
+        <input type="text" name="pan" id="pan">
+        <span class="error" id="panError"></span>
+        <br>
+
+        <button type="button" onclick="validateForm()">SEND</button>
+        <button type="reset">CLEAR</button>
+        <button type="button" onclick="printForm()">PRINT</button>
+    </form>
+
+    <script>
+        // (i) Set the timer to display the current time
+        function updateTime() {
+            let now = new Date();
+            document.getElementById("timer").innerText = now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+
+        // (ii) Print form content
+        function printForm() {
+            let gender = document.getElementsByName("gender");
+            let country = document.getElementById("country").value;
+            let preferences = document.getElementsByName("preferences");
+            let selectedGender = "";
+            let selectedPreferences = [];
+
+            for (let i = 0; i < gender.length; i++) {
+                if (gender[i].checked) selectedGender = gender[i].value;
+            }
+            for (let i = 0; i < preferences.length; i++) {
+                if (preferences[i].checked) selectedPreferences.push(preferences[i].value);
+            }
+
+            alert("Gender: " + selectedGender + "\nCountry: " + country + "\nPreferences: " + selectedPreferences.join(", "));
+        }
+
+        // (iii) Validate form fields
+        function validateForm() {
+            let isValid = true;
+
+            // Name validation
+            let name = document.getElementById("name").value;
+            if (name.trim() === "" || name.length > 15) {
+                document.getElementById("nameError").innerText = "Enter a valid name (Max 15 characters)";
+                isValid = false;
+            } else document.getElementById("nameError").innerText = "";
+
+            // Address validation
+            let address = document.getElementById("address").value;
+            if (address.trim() === "") {
+                document.getElementById("addressError").innerText = "Enter address";
+                isValid = false;
+            } else document.getElementById("addressError").innerText = "";
+
+            // Zip Code validation
+            let zip = document.getElementById("zipcode").value;
+            if (isNaN(zip) || zip.length > 6) {
+                document.getElementById("zipError").innerText = "Enter a valid numeric zip code (Max 6 digits)";
+                isValid = false;
+            } else document.getElementById("zipError").innerText = "";
+
+            // Phone validation
+            let phone = document.getElementById("phone").value;
+            if (isNaN(phone) || phone.length !== 10) {
+                document.getElementById("phoneError").innerText = "Enter a valid 10-digit phone number";
+                isValid = false;
+            } else document.getElementById("phoneError").innerText = "";
+
+            // Email validation
+            let email = document.getElementById("email").value;
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerText = "Enter a valid email";
+                isValid = false;
+            } else document.getElementById("emailError").innerText = "";
+
+            // Password validation
+            let password = document.getElementById("password").value;
+            let passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
+            if (!passwordPattern.test(password)) {
+                document.getElementById("passwordError").innerText = "Password must be 8-15 characters, contain a number, a letter & a special character";
+                isValid = false;
+            } else document.getElementById("passwordError").innerText = "";
+
+            // Verify Password
+            let verifyPassword = document.getElementById("verifyPassword").value;
+            if (password !== verifyPassword) {
+                document.getElementById("verifyPasswordError").innerText = "Passwords do not match";
+                isValid = false;
+            } else document.getElementById("verifyPasswordError").innerText = "";
+
+            // PAN validation
+            let pan = document.getElementById("pan").value;
+            let panPattern = /^[A-Z]{5}[0-9]{4}[A-Z]$/;
+            if (pan && !panPattern.test(pan)) {
+                document.getElementById("panError").innerText = "Enter a valid PAN (e.g., ABCDE1234F)";
+                isValid = false;
+            } else document.getElementById("panError").innerText = "";
+
+            if (!isValid) alert("Please correct errors before submitting.");
+        }
+    </script>
+
+</body>
+</html>

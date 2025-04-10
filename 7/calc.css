@@ -1,0 +1,39 @@
+table {
+    background-color: #9ED2E7;
+    padding: 8px;
+    border-spacing: 4px;
+   }
+   td {
+    border: 2px solid #9ED2E7;
+    background-color: #FDFFFA;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    border-bottom: 3px solid #7BA8BD;
+   }
+   #entry_box {
+    background-color: #7BA8BD;
+    border-top: 3px solid #5B8194;
+   }
+   .operator {
+    background-color: #FFEDF4;
+   }
+   #C {
+    background-color: #FFA0AB;
+    border-bottom: 3px solid #FC7986;
+   }
+   #equal {
+    background-color: #F2FF93;
+    border-bottom: 3px solid #9DA653;
+   }
+   #C:hover, #equal:hover, td:hover {
+    background-color: #9E88F7;
+    border-bottom: 3px solid #6952D1;
+    color: white;
+   }
+   #entry_box:hover {
+    background-color: #7BA8BD;
+    border-top: 3px solid #5B8194;
+    border-bottom: 3px solid #7BA8BD;
+   }

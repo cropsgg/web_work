@@ -1,0 +1,52 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>23BCE1231</title>  
+    <style>  
+        body {  
+            font-family: sans-serif;  
+            background-color: #c8d6b2;   
+        }  
+        #receipt {  
+            background-color: white;  
+            padding: 20px;  
+            margin: 20px auto;  
+            width: 500px;  
+            border-radius: 10px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>Order Receipt</h1>  
+    <div id="receipt">    
+    </div>  
+    <script>  
+        function getQueryParam(name) {  
+            const urlParams = new URLSearchParams(window.location.search);  
+            return urlParams.get(name);  
+        }   
+        const customerName = getQueryParam('customerName');  
+        const phoneNumber = getQueryParam('phoneNumber');  
+        const email = getQueryParam('email');  
+        const appleQty = parseInt(getQueryParam('appleQty') || 0);  
+        const bananaQty = parseInt(getQueryParam('bananaQty') || 0);  
+        const avocadoQty = parseInt(getQueryParam('avocadoQty') || 0);   
+        const appleTotal = appleQty * 10;  
+        const bananaTotal = bananaQty * 5;  
+        const avocadoTotal = avocadoQty * 7;  
+        const orderTotal = appleTotal + bananaTotal + avocadoTotal;   
+        let receiptHTML = `  
+            <h2>Customer Information</h2>  
+            <p><strong>Name:</strong> ${customerName}</p>  
+            <p><strong>Phone:</strong> ${phoneNumber}</p>  
+            <p><strong>Email:</strong> ${email}</p>  
+            <h2>Order Details</h2>  
+            <p><strong>Apples (${appleQty} kg):</strong> $${appleTotal.toFixed(2)}</p>  
+            <p><strong>Bananas (${bananaQty} kg):</strong> $${bananaTotal.toFixed(2)}</p>  
+            <p><strong>Avocados (${avocadoQty} kg):</strong> $${avocadoTotal.toFixed(2)}</p>  
+            <h2>Total: $${orderTotal.toFixed(2)}</h2>  
+        `;   
+        document.getElementById('receipt').innerHTML = receiptHTML;  
+    </script>  
+</body>  
+</html>

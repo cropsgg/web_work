@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>23BCE1231</title>
+    <style>
+        table { margin: 10px; border-collapse: collapse; }
+        th, td { padding: 5px; text-align: center; }
+        .outer { background-color: blue; }
+        .inner1 { background-color: yellow; }
+        .inner2 { background-color: red; }
+        .inner3 { background-color: white; }
+        .inner4 { background-color: green; }
+    </style>
+    <script>
+        function showTable() {
+            document.getElementById('testTable').style.display = 'block';
+        }
+
+        function showExpenses() {
+            document.getElementById('expensesTable').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>HTML Assignment - 23BCE1231</h1>
+
+    <!-- Task 1: Table Display -->
+    <h2>Task 1: Simple Table</h2>
+    <table border="1">
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+        </tr>
+        <tr>
+            <td>Row 1, Col 1</td>
+            <td>Row 1, Col 2</td>
+            <td>Row 1, Col 3</td>
+        </tr>
+        <tr>
+            <td>Row 2, Col 1</td>
+            <td>Row 2, Col 2</td>
+            <td>Row 2, Col 3</td>
+        </tr>
+    </table>
+
+    <!-- Task 2: Nested Tables -->
+    <h2>Task 2: Nested Tables</h2>
+    <table border="1" class="outer">
+        <tr>
+            <td>
+                <table border="1" class="inner1">
+                    <tr>
+                        <td>
+                            <table border="1" class="inner2">
+                                <tr>
+                                    <td>
+                                        <table border="1" class="inner3">
+                                            <tr>
+                                                <td>
+                                                    <table border="1" class="inner4">
+                                                        <tr>
+                                                            <td>Nested Table</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Task 3: Hyperlink to Test Table -->
+    <h2>Task 3: Hyperlinked Test Table</h2>
+    <a href="#" onclick="showTable()">Click Me</a>
+    <table border="1" id="testTable" style="display: none; background-color: #22B;">
+        <tr>
+            <th>Test Col 1</th>
+            <th>Test Col 2</th>
+        </tr>
+        <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+        </tr>
+    </table>
+
+    <!-- Task 4: Hyperlinked Expenses Table -->
+    <h2>Task 4: Expenses Table</h2>
+    <a href="#" onclick="showExpenses()">Expenses</a>
+    <table border="1" id="expensesTable" style="display: none;">
+        <tr>
+            <th>Category</th>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            <td>Food</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>Travel</td>
+            <td>$50</td>
+        </tr>
+    </table>
+
+    <!-- Task 5: Lists -->
+    <h2>Task 5: HTML Lists</h2>
+    <ul>
+        <li>Item 1
+            <ul>
+                <li>Subitem 1.1</li>
+                <li>Subitem 1.2</li>
+            </ul>
+        </li>
+        <li>Item 2
+            <ul>
+                <li>Subitem 2.1</li>
+                <li>Subitem 2.2</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

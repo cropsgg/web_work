@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1231</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+      .bmi-calculator {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        max-width: 400px;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .bmi-calculator h2 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .bmi-calculator label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .bmi-calculator input[type="number"] {
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: calc(100%);
+        box-sizing: border-box;
+      }
+      .bmi-calculator button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .bmi-calculator button:hover {
+        background-color: #0056b3;
+      }
+      .bmi-calculator .result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-align: center;
+        background-color: #e9f7ef;
+      }
+      .table-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: fit-content;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      caption {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bmi-calculator">
+      <h2>BMI Calculator</h2>
+      <label for="weight">Enter Your Weight (in pounds):</label>
+      <input
+        type="number"
+        class="inputbox"
+        id="weight"
+        placeholder="Weight in pounds"
+      />
+
+      <label for="feet">Enter Your Height (feet):</label>
+      <input type="number" id="feet" placeholder="Feet" />
+
+      <label for="inches">Enter Your Height (inches):</label>
+      <input type="number" id="inches" placeholder="Inches" />
+
+      <button onclick="calculateBMI()">Calculate</button>
+
+      <div class="result" id="result">Your BMI will be displayed here.</div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <caption>
+          BMI Criteria
+        </caption>
+        <thead>
+          <tr>
+            <th>Adults</th>
+            <th>Women</th>
+            <th>Men</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Anorexia</td>
+            <td>Less than 17.50</td>
+            <td>Less than 17.50</td>
+          </tr>
+          <tr>
+            <td>Underweight</td>
+            <td>17.51-19.10</td>
+            <td>17.501-20.70</td>
+          </tr>
+          <tr>
+            <td><strong>Ideal range</strong></td>
+            <td><strong>19.11-25.80</strong></td>
+            <td><strong>20.71-26.40</strong></td>
+          </tr>
+          <tr>
+            <td>Marginally overweight range</td>
+            <td>25.81-27.30</td>
+            <td>26.41-27.80</td>
+          </tr>
+          <tr>
+            <td>Overweight range</td>
+            <td>27.31-32.30</td>
+            <td>27.81-31.10</td>
+          </tr>
+          <tr>
+            <td>Very overweight or Obese range</td>
+            <td>More than 32.30</td>
+            <td>More than 31.10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function calculateBMI() {
+        const weight = parseFloat(document.getElementById("weight").value);
+        const feet = parseFloat(document.getElementById("feet").value);
+        const inches = parseFloat(document.getElementById("inches").value);
+
+        if (isNaN(weight) || isNaN(feet) || isNaN(inches)) {
+          document.getElementById("result").innerText =
+            "Please enter valid numbers.";
+          return;
+        }
+
+        const heightInInches = feet * 12 + inches;
+        const bmi = (weight / (heightInInches * heightInInches)) * 703;
+        document.getElementById(
+          "result"
+        ).innerText = `Your BMI is: ${bmi.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>

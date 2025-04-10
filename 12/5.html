@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1231</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            border: 2px solid black;
+        }
+        .box {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            font-weight: bold;
+            color: white;
+            font-size: 18px;
+        }
+        #box1 { background: red; top: 50px; left: 50px; z-index: 1; }
+        #box2 { background: blue; top: 80px; left: 80px; z-index: 2; }
+        #box3 { background: green; top: 110px; left: 110px; z-index: 3; }
+        .controls { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h2>Dynamic Z-Index Manipulation</h2>
+    <div class="container">
+        <div id="box1" class="box">Box 1</div>
+        <div id="box2" class="box">Box 2</div>
+        <div id="box3" class="box">Box 3</div>
+    </div>
+
+    <div class="controls">
+        <h3>Adjust Z-Index:</h3>
+        <p>
+            <button onclick="changeZIndex('box1', 1)">Box 1 +</button>
+            <button onclick="changeZIndex('box1', -1)">Box 1 -</button>
+            <span id="zIndex1">Z-Index: 1</span>
+        </p>
+        <p>
+            <button onclick="changeZIndex('box2', 1)">Box 2 +</button>
+            <button onclick="changeZIndex('box2', -1)">Box 2 -</button>
+            <span id="zIndex2">Z-Index: 2</span>
+        </p>
+        <p>
+            <button onclick="changeZIndex('box3', 1)">Box 3 +</button>
+            <button onclick="changeZIndex('box3', -1)">Box 3 -</button>
+            <span id="zIndex3">Z-Index: 3</span>
+        </p>
+    </div>
+
+    <script>
+        function changeZIndex(boxId, change) {
+            let box = document.getElementById(boxId);
+            let currentZ = parseInt(window.getComputedStyle(box).zIndex);
+            let newZ = currentZ + change;
+            box.style.zIndex = newZ;
+            document.getElementById("zIndex" + boxId.charAt(3)).textContent = "Z-Index: " + newZ;
+        }
+    </script>
+
+</body>
+</html>

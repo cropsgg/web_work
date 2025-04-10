@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1231</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .seat {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Airline Seat Reservation System</h1>
+    <div class="seat">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" />
+    </div>
+    <div class="seat">
+      <label for="seatType">Seat Type:</label>
+      <select id="seatType">
+        <option value="1">First Class (Seats 1-5)</option>
+        <option value="2">Economy (Seats 6-10)</option>
+      </select>
+    </div>
+    <button onclick="assignSeat()">Assign Seat</button>
+    <div id="boardingPass" style="margin-top: 20px"></div>
+
+    <script>
+      // Initialize the seating chart with 10 seats, all empty (0)
+      let seatingChart = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+      function assignSeat() {
+        const name = document.getElementById("name").value;
+        const seatType = document.getElementById("seatType").value;
+        let seatNumber = -1;
+
+        if (seatType === "1") {
+          // Assign a seat in the first-class section (seats 1-5)
+          seatNumber = assignSeatInSection(1, 5);
+        } else if (seatType === "2") {
+          // Assign a seat in the economy section (seats 6-10)
+          seatNumber = assignSeatInSection(6, 10);
+        }
+
+        if (seatNumber === -1) {
+          // If no seat is available in the desired section, check the other section
+          const isAcceptable = confirm(
+            "Your preferred section is full. Is it acceptable to be placed in the other section?"
+          );
+          if (isAcceptable) {
+            if (seatType === "1") {
+              seatNumber = assignSeatInSection(6, 10);
+            } else {
+              seatNumber = assignSeatInSection(1, 5);
+            }
+          }
+        }
+
+        if (seatNumber !== -1) {
+          // Mark the seat as taken
+          seatingChart[seatNumber - 1] = 1;
+          // Display the boarding pass
+          displayBoardingPass(
+            name,
+            seatNumber,
+            seatNumber <= 5 ? "First Class" : "Economy"
+          );
+        } else {
+          alert("Sorry, the flight is full.");
+        }
+      }
+
+      function assignSeatInSection(start, end) {
+        for (let i = start - 1; i < end; i++) {
+          if (seatingChart[i] === 0) {
+            return i + 1;
+          }
+        }
+        return -1;
+      }
+
+      function displayBoardingPass(name, seatNumber, seatClass) {
+        const boardingPassDiv = document.getElementById("boardingPass");
+        boardingPassDiv.innerHTML = `
+                <h2>Boarding Pass</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Seat Number:</strong> ${seatNumber}</p>
+                <p><strong>Class:</strong> ${seatClass}</p>
+            `;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form page</title>
+</head>
+<style>
+    body {
+        margin: 2%;
+    }
+</style>
+<body>
+    <form style="max-width: 50%;">
+        <fieldset style="display: flex;flex-direction: column;">
+            <legend>Login</legend>
+            <label>Username*</label>
+            <input required />
+            <label>Password*</label>
+            <input type="password" required />
+        </fieldset>
+        <fieldset>
+            <legend>Gender*</legend>
+            <input required type="radio" name="gender" id="male" value="Male" />
+            <label>Male</label>
+            <input required type="radio" name="gender" id="female" value="Female" />
+            <label>Female</label>
+        </fieldset>
+        <fieldset>
+            <legend>Programming Skill</legend>
+            <input type="checkbox" name="programming" id="java" value="Java" />
+            <label>Java</label>
+            <input checked type="checkbox" name="programming" id="cpp" value="C++" />
+            <label>C++</label>
+            <input type="checkbox" name="programming" id="csharp" value="C#" />
+            <label>C#</label>
+        </fieldset>
+        <fieldset>
+            <legend>Fruit</legend>
+            <label>Choose a fruit</label>
+            <select name="fruit" id="fruit">
+                <optgroup label="Pome">
+                    <option value="apple">Apple</option>
+                    <option value="pear">Pear</option>
+                </optgroup>
+                <optgroup label="Citrus">
+                    <option value="orange">Orange</option>
+                    <option value="grapefruit">Grapefruit</option>
+                    <option value="mandarin">Mandarin</option>
+                    <option value="lime">Lime</option>
+                </optgroup>
+                <optgroup label="Stone">
+                    <option value="nectarine">Nectarine</option>
+                    <option value="apricot">Apricot</option>
+                    <option value="peach">Peach</option>
+                    <option value="plum">Plum</option>
+                </optgroup>
+                <optgroup label="Exotic">
+                    <option selected value="banana">Banana</option>
+                    <option value="mango">Mango</option>
+                </optgroup>
+                <optgroup label="Berry">
+                    <option value="strawberry">Strawberry</option>
+                    <option value="raspberry">Raspberry</option>
+                    <option value="blueberry">Blueberry</option>
+                    <option value="kiwifruit">Kiwifruit</option>
+                    <option value="passionfruit">Passionfruit</option>
+                </optgroup>
+                <optgroup label="Melon">
+                    <option value="watermelon">Watermelon</option>
+                    <option value="rockmelon">Rock-melon</option>
+                    <option value="honeydewmelon">Honeydew melon</option>
+                </optgroup>
+            </select>
+        </fieldset>
+        <textarea name="comment" id="comment" placeholder="Enter your comment here"></textarea>
+        <div>
+            <button type="submit">SEND</button>
+            <button type="reset">RESET</button>
+        </div>
+    </form>
+    
+    <div style="height: 50px;"></div>
+
+    <form style="max-width: 50%;">
+        <fieldset>
+            <legend style="color: red;font-weight: bold;">Personal Details</legend>
+            <table>
+                <tr>
+                    <td>
+                        <label>Name</label>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <input />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Password</label>
+                    </td>
+                    <td>:</td>
+                    <td><input type="password" /></td>
+                </tr>
+                <tr>
+                    <td><label>E-mail id</label></td>
+                    <td>:</td>
+                    <td><input type="email"></td>
+                </tr>
+                <tr>
+                    <td><label>Gender</label></td>
+                    <td>:</td>
+                    <td>
+                        <input type="radio" name="gender" id="male" value="Male" />
+                        <label>Male</label>
+                        <input checked type="radio" name="gender" id="female" value="Female" />
+                        <label>Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>DOB</label></td>
+                    <td>:</td>
+                    <td><input type="date" name="dob" id="dob" /></td>
+                </tr>
+                <tr>
+                    <td><label>Mobile#</label></td>
+                    <td>:</td>
+                    <td><input type="number" name="mobile" id="mobile" /></td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset style="display: flex; gap: 10px;">
+            <legend style="color: red;font-weight: bold;">Educational Qualification</legend>
+            <div>
+                <label>Degree:</label>
+                <select name="degree" id="degree" >
+                    <option>-- Select Group --</option>
+                            <optgroup label="UG">
+                                <option value="BE">BE</option>
+                                <option value="BTech">BTech</option>
+                                <option value="BSc">BSc</option>
+                                <option value="BA">BA</option>
+                                <option value="BCA">BCA</option>
+                                <option value="BBA">BBA</option>
+                                <option value="Others">Others</option>
+                            </optgroup>
+                            <optgroup label="PG">
+                                <option value="ME">ME</option>
+                                <option value="MTech">MTech</option>
+                                <option value="MSc">MSc</option>
+                                <option value="MA">MA</option>
+                                <option value="MCA">MCA</option>
+                                <option value="MBA">MBA</option>
+                                <option value="Others">Others</option>
+                            </optgroup>
+                            <optgroup label="PhD">
+                                <option value="Engineering">Engineering</option>
+                                <option value="Science">Science</option>
+                                <option value="Management">Management</option>
+                                <option value="Others">Others</option>
+                            </optgroup>
+                        </select>
+            </div>
+            <div>
+                <label>Engineering:</label>
+                <select name="engineering" id="engineering">
+                    <option>-- Select Group --</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="MECH">MECH</option>
+                </select>
+            </div>
+        </fieldset>
+        <div>
+            <table>
+                <tr>
+                    <td>Hobbies</td>
+                    <td>:</td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="chess" value="chess" />
+                        <label>Playing chess</label>
+                        <input type="checkbox" name="hobby" id="book" value="book" />
+                        <label>Reading Books</label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <label>Favourite Color:</label>
+            <input type="color" />
+        </div>
+        <div>
+            <label style="color: red;font-weight: bold;">Address</label>
+            <div style="margin: 1%;"><textarea name="address" id="address"></textarea></div>
+        </div>
+        <label>Attach Resume:</label>
+        <input type="file" name="resume" id="resume" />
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

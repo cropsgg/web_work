@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		.hide {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+<div style="display:flex;">
+		<img src="image.jpg" usemap="#solar">
+
+	<map name="solar">
+		<area shape="circle" coords="63,756,280" title="Ball of Fire" href="sun.html">
+		<area shape="circle" coords="400,432,60" title="Morning Star" href="#">
+		<area shape="circle" coords="657,590,100" title="Blue planet" href="earth.html">
+		<area shape="circle" coords="895,416,130" title="Largest Planet" href="#">
+
+		<area shape="polygon" coords="986,619,1138,580,1269,678,1111,698" title="Ring Planet" href="#">
+		<area shape="circle" coords="1369,124,30" title="Dwarf planet" href="#">
+		<area shape="rect" coords="0,0,368,92" title="Achyut Mukund 23BCE1231" onclick="show('#profile');">
+	</map>
+
+	<div id="profile" class="hide">
+		<img src="https://www.shutterstock.com/shutterstock/photos/2438031869/display_1500/stock-photo-passport-photo-portrait-of-woman-on-white-background-2438031869.jpg" width="300" usemap="#photo">
+		<map name="photo">
+			<area shape="circle" coords="150,150,100" onclick="show('#sign');">
+		</map>
+		<img src="https://www.signwell.com/assets/vip-signatures/muhammad-ali-signature-3f9237f6fc48c3a04ba083117948e16ee7968aae521ae4ccebdfb8f22596ad22.svg" class="hide" id="sign" width="300">
+		<ol>
+			<li>Hello!</li>
+			<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+		</ol>
+	</div>
+</div>
+
+	<script>
+		function show(id) {
+			console.log(id)
+			document.querySelector(id).classList.toggle("hide");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE1231</title>
+</head>
+<body onload="drawScene()">
+    <canvas id="pondScene" width="600" height="400" style="border:1px solid black;"></canvas>
+    <script>
+        function drawScene() {
+            const canvas = document.getElementById("pondScene");
+            const ctx = canvas.getContext("2d");
+
+            // Draw Sun
+            ctx.beginPath();
+            ctx.arc(500, 50, 30, 0, Math.PI * 2);
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            ctx.stroke();
+            for (let i = 0; i < 12; i++) {
+                let angle = (i * Math.PI) / 6;
+                let x1 = 500 + 35 * Math.cos(angle);
+                let y1 = 50 + 35 * Math.sin(angle);
+                let x2 = 500 + 50 * Math.cos(angle);
+                let y2 = 50 + 50 * Math.sin(angle);
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+            }
+            ctx.stroke();
+
+            // Draw House
+            ctx.fillStyle = "orange";
+            ctx.fillRect(100, 200, 80, 80);
+            ctx.fillStyle = "red";
+            ctx.beginPath();
+            ctx.moveTo(90, 200);
+            ctx.lineTo(190, 200);
+            ctx.lineTo(140, 150);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = "brown";
+            ctx.fillRect(120, 250, 20, 30);
+            ctx.fillStyle = "blue";
+            ctx.fillRect(160, 220, 15, 15);
+
+            // Draw Pond
+            ctx.beginPath();
+            ctx.ellipse(300, 250, 100, 50, 0, 0, Math.PI * 2);
+            ctx.fillStyle = "lightblue";
+            ctx.fill();
+            ctx.stroke();
+
+            // Draw Boat
+            ctx.beginPath();
+            ctx.moveTo(280, 250);
+            ctx.lineTo(320, 250);
+            ctx.lineTo(310, 260);
+            ctx.lineTo(290, 260);
+            ctx.closePath();
+            ctx.fillStyle = "brown";
+            ctx.fill();
+
+            // Draw Duck
+            ctx.beginPath();
+            ctx.arc(400, 290, 15, 0, Math.PI * 2);
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(380, 300, 20, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(408, 288, 2, 0, Math.PI * 2);
+            ctx.fillStyle = "black";
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(415, 290);
+            ctx.lineTo(425, 285);
+            ctx.lineTo(415, 280);
+            ctx.fillStyle = "orange";
+            ctx.fill();
+
+            // Draw Flower
+            ctx.beginPath();
+            ctx.moveTo(500, 310);
+            ctx.lineTo(500, 350);
+            ctx.strokeStyle = "green";
+            ctx.lineWidth = 5;
+            ctx.stroke();
+            ctx.fillStyle = "pink";
+            for (let i = 0; i < 5; i++) {
+                let angle = (i * Math.PI * 2) / 5;
+                let x = 500 + 20 * Math.cos(angle);
+                let y = 300 + 20 * Math.sin(angle);
+                ctx.beginPath();
+                ctx.arc(x, y, 15, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.beginPath();
+            ctx.arc(500, 300, 10, 0, Math.PI * 2);
+            ctx.fillStyle = "yellow";
+            ctx.fill();
+            ctx.fillStyle = "green";
+            ctx.beginPath();
+            ctx.moveTo(490, 325);
+            ctx.lineTo(480, 335);
+            ctx.lineTo(495, 330);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(510, 325);
+            ctx.lineTo(520, 335);
+            ctx.lineTo(505, 330);
+            ctx.fill();
+
+            // Draw Stones
+            ctx.fillStyle = "gray";
+            ctx.beginPath();
+            ctx.arc(110, 290, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(120, 295, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(130, 290, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(450, 340, 10, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(460, 345, 10, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>
