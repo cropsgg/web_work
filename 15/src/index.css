@@ -1,0 +1,55 @@
+.container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.btn-group button {
+  margin: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.section {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.external-style-btn {
+  background-color: orange;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.theme-box {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.theme-box.dark {
+  background-color: #333;
+  color: white;
+}
+
+.theme-box.light {
+  background-color: #eee;
+  color: black;
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
